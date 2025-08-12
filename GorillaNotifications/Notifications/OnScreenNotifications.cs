@@ -1,4 +1,6 @@
 using System.Collections;
+using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 namespace GorillaNotifications.Notifications
@@ -7,8 +9,9 @@ namespace GorillaNotifications.Notifications
     {
         public static OnScreenNotifications Instance { get; private set; }
 
-        private string currentNotification = "hi\nsupercool";
-        private float currentDuration;
+        private List<string> notifications = new();
+        
+        private string currentNotification = "";
         
         private Coroutine notificationCoroutine;
         
@@ -25,22 +28,27 @@ namespace GorillaNotifications.Notifications
 
         public void SendNotification(string notification, float duration)
         {
-            currentNotification = notification;
-            currentDuration = duration;
-            
-            if (notificationCoroutine != null)
-                StopCoroutine(notificationCoroutine);
-            
-            notificationCoroutine = StartCoroutine(DisplayNotification());
+            notifications.Add(notification);
+            UpdateNotification();
+            StartCoroutine(DisplayNotification(duration, notification));
         }
 
-        private IEnumerator DisplayNotification()
+        private IEnumerator DisplayNotification(float duration, string messageToRemove)
         {
-            yield return new WaitForSeconds(currentDuration);
-            currentNotification = "";
+            yield return new WaitForSeconds(duration);
+            notifications.Remove(messageToRemove);
+            UpdateNotification();
         }
 
-        private void OnGUI() => GUI.Label(new Rect(new Vector2(Screen.width/4f, Screen.height - 110f), new Vector2(Screen.width/2f, 100f)), currentNotification, labelStyle);
+        private void UpdateNotification()
+        {
+            foreach (string notificationMessage in notifications)
+                currentNotification += notificationMessage + "\n";
+            
+            currentNotification = currentNotification.Substring(0, currentNotification.Length - 1);
+        }
+
+        private void OnGUI() => GUI.Label(new Rect(new Vector2(Screen.width/4f, Screen.height - 55 * (currentNotification.Split("\n").ToArray().Length + 1)), new Vector2(Screen.width/2f, 100f)), currentNotification, labelStyle);
         private void Awake() => Instance = this;
     }
 }

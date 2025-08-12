@@ -12,5 +12,10 @@ namespace GorillaNotifications
         {
             gameObject.AddComponent<OnScreenNotifications>();
         }
+
+        private void Update()
+        {
+            
+        }
     }
 }
