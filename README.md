@@ -43,11 +43,16 @@ It supports:
 
 ## Quick Start
 
+The very basics is this:
+
 ```csharp
 using GorillaNotifications;
 
 NotificationController.SendNotification("System", "Notification system initialized", 3f);
 ```
+
+Calling `NotificationController`'s `SendNotification` renders a notification on the users screen.
+This is all you need to know for very surface level usages, for a more in depth explanation read the "API" section.
 
 ---
 
