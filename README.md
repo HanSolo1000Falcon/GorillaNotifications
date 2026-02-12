@@ -1,6 +1,6 @@
 # GorillaNotifications
 
-Displays notifications both in world space (VR HUD) and on the PC screen with automatic text wrapping and timed removal.
+A simple Gorilla Tag mod library meant to centralise notification handling that displays notifications both in world space (VR HUD) and on the PC screen with automatic text wrapping and timed removal.
 
 ---
 
