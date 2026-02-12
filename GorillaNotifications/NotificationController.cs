@@ -33,6 +33,7 @@ public class NotificationController : MonoBehaviour
 
         worldSpaceCanvas.transform.localPosition = new Vector3(-0.25f, -0.2f, 1f);
         worldSpaceCanvas.transform.localRotation = Quaternion.Euler(20f, -20f, 0f);
+        worldSpaceCanvas.SetLayer(UnityLayer.FirstPersonOnly);
         worldSpaceNotificationText               = worldSpaceCanvas.GetComponentInChildren<Text>();
 
         GameObject pcScreenCanvas = Instantiate(bundle.LoadAsset<GameObject>("PCScreenCanvas"));
