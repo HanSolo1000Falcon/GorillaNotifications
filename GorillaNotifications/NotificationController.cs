@@ -105,6 +105,7 @@ public class NotificationController : MonoBehaviour
             Source        = newSource;
             Notification  = newNotification;
             Duration      = newDuration;
+            instance.RefreshText();
             removeRoutine = instance.StartCoroutine(instance.RemoveNotification(this));
         }
 
