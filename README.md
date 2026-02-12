@@ -51,7 +51,7 @@ using GorillaNotifications;
 NotificationController.SendNotification("System", "Notification system initialized", 3f);
 ```
 
-Calling `NotificationController`'s `SendNotification` renders a notification on the users screen.
+Calling `NotificationController`'s `SendNotification` renders a notification on the users screen.<br></br>
 This is all you need to know for very surface level usages, for a more in depth explanation read the "API" section.
 
 ---
