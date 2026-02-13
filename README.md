@@ -62,7 +62,7 @@ Calling `NotificationController`'s `SendNotification` renders a notification on 
 Signature:
 
 ```csharp
-public static NotificationEntry SendNotification(string source, string notification, float duration)
+public static NotificationEntry SendNotification(string source, string notification, float duration, FontType fontType)
 ```
 
 Creates and displays a new notification.
@@ -71,7 +71,8 @@ Parameters:
 
 - source (string): Displayed source label  
 - notification (string): Message content  
-- duration (float): Time in seconds before auto-removal  
+- duration (float): Time in seconds before auto-removal
+- fontType (FontType): The font you want your notification to be
 
 Returns:
 A NotificationEntry instance.
@@ -84,7 +85,7 @@ Represents a single active notification.
 
 Properties:
 
-- string Source  
+- string Source
 - string Notification  
 - float Duration  
 
