@@ -62,7 +62,10 @@ Calling `NotificationController`'s `SendNotification` renders a notification on 
 Signature:
 
 ```csharp
+public static NotificationEntry SendNotification(string source, string notification, float duration)
 public static NotificationEntry SendNotification(string source, string notification, float duration, FontType fontType)
+public static NotificationEntry SendNotification(string source, string notification, float duration, params StylingOptions[] stylingOptions)
+public static NotificationEntry SendNotification(string source, string notification, float duration, FontType fontType, params StylingOptions[] stylingOptions)
 ```
 
 Creates and displays a new notification.
@@ -73,6 +76,7 @@ Parameters:
 - notification (string): Message content  
 - duration (float): Time in seconds before auto-removal
 - fontType (FontType): The font you want your notification to be
+- stylingOptions (StylingOptions[]): Different style modifiers to apply to your notification, such as `OnlyVR` making the notification only visible in VR or `BlackBox` putting a black box behind the text on your notification
 
 Returns:
 A NotificationEntry instance.
