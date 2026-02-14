@@ -1,4 +1,5 @@
 ﻿using BepInEx;
+using GorillaNotifications.Core;
 
 namespace GorillaNotifications;
 
