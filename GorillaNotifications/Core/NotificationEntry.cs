@@ -59,7 +59,7 @@ public sealed class NotificationEntry
                     Bounds textBounds = textPoolEntry.TextMesh.textBounds;
 
                     RectTransform rect = blackBox.GetComponent<RectTransform>();
-                    rect.sizeDelta = textBounds.size + new Vector3(10f, 10f, 1f);
+                    rect.sizeDelta = textBounds.size + new Vector3(5f, 5f, 1f);
                     rect.position  = textBounds.center;
                 }
 
