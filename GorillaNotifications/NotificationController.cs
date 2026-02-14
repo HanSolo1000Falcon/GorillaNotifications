@@ -42,7 +42,7 @@ public class NotificationController : MonoBehaviour
                 GTPlayer.Instance.headCollider.transform);
 
         worldSpaceCanvas.transform.localPosition = new Vector3(0f, 0f, 1f);
-        worldSpaceCanvas.transform.localRotation = Quaternion.Euler(0f, 0f, 0f);
+        worldSpaceCanvas.transform.localRotation = Quaternion.Euler(20f, 0f, 0f);
 
         worldSpaceCanvas.SetLayer(UnityLayer.FirstPersonOnly);
 
