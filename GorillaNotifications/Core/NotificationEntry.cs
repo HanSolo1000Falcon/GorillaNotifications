@@ -30,6 +30,9 @@ public sealed class NotificationEntry
 
         textPoolEntry.Text.font     = NotificationController.Instance.FontCache[fontType].Item1;
         textPoolEntry.TextMesh.font = NotificationController.Instance.FontCache[fontType].Item2;
+        
+        textPoolEntry.TextMesh.transform.parent.gameObject.SetActive(true);
+        textPoolEntry.Text.transform.parent.gameObject.SetActive(true);
 
         CachedStylingOptions = stylingOptions;
 
@@ -85,11 +88,11 @@ public sealed class NotificationEntry
             }
 
             if (stylingOptions.Contains(StylingOptions.OnlyVR))
-                textPoolEntry.TextMesh.text = "";
+                textPoolEntry.TextMesh.transform.parent.gameObject.SetActive(false);
 
             // ReSharper disable once InvertIf
             if (stylingOptions.Contains(StylingOptions.OnlyDesktop))
-                textPoolEntry.Text.text = "";
+                textPoolEntry.Text.transform.parent.gameObject.SetActive(false);
         }
     }
 
@@ -108,11 +111,8 @@ public sealed class NotificationEntry
         Source       = newSource;
         Notification = newNotification;
         Duration     = newDuration;
-
-        if (!CachedStylingOptions.Contains(StylingOptions.OnlyDesktop))
+        
             AssociatedTextPoolEntry.Text.text = $"[{Source}] {Notification}";
-
-        if (!CachedStylingOptions.Contains(StylingOptions.OnlyVR))
             AssociatedTextPoolEntry.TextMesh.text = $"[{Source}] {Notification}";
 
         NotificationController.Instance.NotificationEntries.Remove(this);
